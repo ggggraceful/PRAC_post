@@ -22,7 +22,6 @@ public class PostService {
 
 
     public List<PostResponseDto> getAll(){
-        //[1,2,3,4,5] --> ["1","2","3","4","5"]
         List<PostResponseDto> result  = new ArrayList<>();
         List<Post> postList = postRepository.findAllByOrderByModifiedAtDesc();
 
