@@ -1,8 +1,5 @@
 package com.sparta.week03.dto;
 
-//상세페이지 확인 Dto
-
-
 import com.sparta.week03.domain.Post;
 import java.time.LocalDateTime;
 
