@@ -13,15 +13,15 @@ week03-post
 
 week04_post
  * post
-   + +login
-   + +jwt token
+   + + login
+   + + jwt token
 
 
 
 
 week05-post
  * post
-   + +login
-   + +jwt token
-   + +comment
-   + +post like
+   + + login
+   + + jwt token
+   + + comment
+   + + post like
