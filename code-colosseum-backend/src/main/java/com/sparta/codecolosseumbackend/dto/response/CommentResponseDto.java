@@ -1,6 +1,7 @@
 package com.sparta.codecolosseumbackend.dto.response;
 
 import com.sparta.codecolosseumbackend.entity.Comment;
+import com.sparta.codecolosseumbackend.entity.Member;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,6 +21,7 @@ public class CommentResponseDto {
 	private LocalDateTime createdAt;
 	private LocalDateTime modifiedAt;
 	private boolean isLoading;
+	private String username;
 
 	public CommentResponseDto(Comment comment) {
 		this.commentId = comment.getId();
@@ -28,6 +30,7 @@ public class CommentResponseDto {
 		this.createdAt = comment.getCreatedAt();
 		this.modifiedAt = comment.getModifiedAt();
 		this.isLoading = comment.isLoading();
+		this.username = comment.getMember().getUsername();
 	}
 
 }
