@@ -2,8 +2,10 @@ package com.sparta.codecolosseumbackend.controller;
 
 import com.sparta.codecolosseumbackend.dto.request.CommentRequestDto;
 import com.sparta.codecolosseumbackend.dto.response.ResponseDto;
+import com.sparta.codecolosseumbackend.security.UserDetailImp;
 import com.sparta.codecolosseumbackend.service.CommentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +20,7 @@ public class CommentController {
 
 	// comment 작성하기
 	@PostMapping("/api/auth/comment/{problemId}")
-	public ResponseDto<?> createComment(@PathVariable Long problemId, @RequestBody CommentRequestDto requestDto, HttpServletRequest request) {
+	public ResponseDto<?> createComment(@AuthenticationPrincipal UserDetailImp userDetailImp, @PathVariable Long problemId, @RequestBody CommentRequestDto requestDto, HttpServletRequest request) {
 		return commentService.createComment(problemId, requestDto, request);
 	}
 
@@ -30,13 +32,13 @@ public class CommentController {
 
 	// comment 수정하기
 	@PutMapping("/api/auth/comment/{commentId}")
-	public ResponseDto<?> updateComment(@PathVariable Long commentId, @RequestBody CommentRequestDto requestDto, HttpServletRequest request) {
+	public ResponseDto<?> updateComment(@AuthenticationPrincipal UserDetailImp userDetailImp, @PathVariable Long commentId, @RequestBody CommentRequestDto requestDto, HttpServletRequest request) {
 		return commentService.updateComment(commentId, requestDto, request);
 	}
 
 	// comment 삭제하기
 	@DeleteMapping("/api/auth/comment/{commentId}")
-	public ResponseDto<?> deleteComment(@PathVariable Long commentId, HttpServletRequest request){
+	public ResponseDto<?> deleteComment(@AuthenticationPrincipal UserDetailImp userDetailImp, @PathVariable Long commentId, HttpServletRequest request){
 		return commentService.deleteComment(commentId, request);
 	}
 
