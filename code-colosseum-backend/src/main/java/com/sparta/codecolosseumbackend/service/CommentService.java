@@ -115,6 +115,7 @@ public class CommentService {
 							.createdAt(comment.getCreatedAt())
 							.modifiedAt(comment.getModifiedAt())
 							.isLoading(false)
+							.username(comment.getMember().getUsername())
 							.build()
 			);
 		}
@@ -125,7 +126,7 @@ public class CommentService {
 
 	// comment 수정하기
 	@Transactional
-	public ResponseDto<?> updateComment(Long commentId, CommentRequestDto requestDto, HttpServletRequest request) {
+	public ResponseDto<?> updateComment( Long commentId, CommentRequestDto requestDto, HttpServletRequest request) {
 
 		// 토큰값이 없을 경우
 		if(null == request.getHeader("Refresh_Token")) {
